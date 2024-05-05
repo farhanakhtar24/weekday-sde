@@ -1,3 +1,4 @@
+// Importing necessary components and hooks from Material UI and React
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
@@ -5,17 +6,25 @@ import { styled } from "@mui/material";
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
+// Defining the width of the drawer
 const drawerWidth = 300;
 
+// Defining the type for the props of the NavBar component
 type Props = {
+	// handleDrawerOpen is a function that opens the drawer
 	handleDrawerOpen: () => void;
+	// open is a boolean that represents whether the drawer is open or not
 	open: boolean;
 };
 
+// Defining the type for the props of the AppBar component
 interface AppBarProps extends MuiAppBarProps {
+	// open is a boolean that represents whether the AppBar is open or not
 	open?: boolean;
 }
 
+// Defining a styled AppBar component
+// This component has some styles applied to it based on whether it is open or not
 const AppBar = styled(MuiAppBar, {
 	shouldForwardProp: (prop) => prop !== "open",
 })<AppBarProps>(({ theme, open }) => ({
@@ -34,6 +43,9 @@ const AppBar = styled(MuiAppBar, {
 	}),
 }));
 
+// Defining the NavBar component
+// This component renders an AppBar with a Toolbar
+// The Toolbar contains an IconButton and a Typography component
 const NavBar = ({ handleDrawerOpen, open }: Props) => {
 	return (
 		<AppBar
@@ -69,4 +81,5 @@ const NavBar = ({ handleDrawerOpen, open }: Props) => {
 	);
 };
 
+// Exporting the NavBar component as the default export of this module
 export default NavBar;

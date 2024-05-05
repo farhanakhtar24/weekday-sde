@@ -1,3 +1,4 @@
+// Importing necessary modules and components from Material UI
 import { styled, useTheme, Theme, CSSObject } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
@@ -19,8 +20,10 @@ import { Typography } from "@mui/material";
 import ShareIcon from "@mui/icons-material/Share";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 
+// Define the width of the drawer
 const drawerWidth = 300;
 
+// Define the styles for the opened drawer
 const openedMixin = (theme: Theme): CSSObject => ({
 	width: drawerWidth,
 	transition: theme.transitions.create("width", {
@@ -30,6 +33,7 @@ const openedMixin = (theme: Theme): CSSObject => ({
 	overflowX: "hidden",
 });
 
+// Define the styles for the closed drawer
 const closedMixin = (theme: Theme): CSSObject => ({
 	transition: theme.transitions.create("width", {
 		easing: theme.transitions.easing.sharp,
@@ -42,6 +46,7 @@ const closedMixin = (theme: Theme): CSSObject => ({
 	},
 });
 
+// Define the styles for the drawer header
 const DrawerHeader = styled("div")(({ theme }) => ({
 	display: "flex",
 	alignItems: "center",
@@ -51,6 +56,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 	...theme.mixins.toolbar,
 }));
 
+// Define the styles for the drawer
 const Drawer = styled(MuiDrawer, {
 	shouldForwardProp: (prop) => prop !== "open",
 })(({ theme, open }) => ({
@@ -68,6 +74,7 @@ const Drawer = styled(MuiDrawer, {
 	}),
 }));
 
+// Main component
 export default function MiniDrawer({
 	handleDrawerClose,
 	open,
@@ -77,6 +84,7 @@ export default function MiniDrawer({
 }) {
 	const theme = useTheme();
 
+	// Define the icons for the job section
 	const jobIcons = [
 		{
 			icon: <PersonOutlineOutlinedIcon />,
@@ -96,6 +104,7 @@ export default function MiniDrawer({
 		},
 	];
 
+	// Define the icons for the more section
 	const moreIcon = [
 		{
 			icon: <ThumbUpOffAltIcon />,
@@ -107,6 +116,7 @@ export default function MiniDrawer({
 		},
 	];
 
+	// Render the component
 	return (
 		<Box sx={{ display: "flex" }}>
 			<CssBaseline />
