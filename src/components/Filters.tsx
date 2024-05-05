@@ -39,7 +39,7 @@ const Filters = ({ updateFilters }: Props) => {
 					</FormControl>
 				</Grid>
 				{FilterConstants.map((item, index) => (
-					<Grid item xs={6} sm={2}>
+					<Grid item sm={2} xs={6}>
 						<FormControl fullWidth>
 							<Fragment key={index}>
 								<InputLabel id={item.id}>

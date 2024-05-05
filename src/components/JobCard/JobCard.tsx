@@ -1,9 +1,7 @@
-import { Card, Chip, Grid, Link, Typography, colors } from "@mui/material";
-import React from "react";
-import HourglassTopIcon from "@mui/icons-material/HourglassTop";
 import JobDetails from "./JobDetails";
 import EasyApplyBtn from "./EasyApplyBtn";
 import UnlockReferalAdsBtn from "./UnlockReferalAdsBtn";
+import { Card, Chip, Grid, Link, Typography, colors } from "@mui/material";
 
 type Props = {
 	jobData: Job;
@@ -13,16 +11,12 @@ type Props = {
 const JobCard = ({ jobData, lastElementRef }: Props) => {
 	const {
 		companyName,
-		jdLink,
-		jdUid,
 		jobDetailsFromCompany,
 		jobRole,
 		location,
 		logoUrl,
-		maxExp,
 		maxJdSalary,
 		minExp,
-		salaryCurrencyCode,
 		minJdSalary,
 	} = jobData;
 	return (
