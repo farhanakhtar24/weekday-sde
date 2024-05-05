@@ -4,7 +4,6 @@ import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material";
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import { Image } from "@mui/icons-material";
 
 const drawerWidth = 300;
 

@@ -27,7 +27,7 @@ function useFilters() {
 		[isFetching, offset]
 	);
 
-	const fetchDatafromAPI = useCallback(async () => {
+	const fetchData = useCallback(async () => {
 		try {
 			setIsFetching(true);
 			const res = await fetchJobs({ limit: 12, offset: offset });
@@ -52,11 +52,11 @@ function useFilters() {
 
 	const list = useMemo(() => {
 		console.log("Calling List");
+		console.log(filters, listingData);
 		const data = listingData.filter((item) => {
 			if (
 				debouncedFilters.experience &&
-				(item.minExp < debouncedFilters.experience ||
-					item.maxExp > debouncedFilters.experience)
+				item.minExp < debouncedFilters.experience
 			) {
 				return false;
 			}
@@ -97,7 +97,7 @@ function useFilters() {
 	}, [debouncedFilters, listingData]);
 
 	useEffect(() => {
-		fetchDatafromAPI();
+		fetchData();
 	}, [offset]);
 
 	return {
