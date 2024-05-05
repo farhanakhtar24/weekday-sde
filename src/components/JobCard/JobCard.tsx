@@ -7,9 +7,10 @@ import UnlockReferalAdsBtn from "./UnlockReferalAdsBtn";
 
 type Props = {
 	jobData: Job;
+	lastElementRef?: (arg: HTMLDivElement | null) => void;
 };
 
-const JobCard = ({ jobData }: Props) => {
+const JobCard = ({ jobData, lastElementRef }: Props) => {
 	const {
 		companyName,
 		jdLink,
@@ -25,7 +26,7 @@ const JobCard = ({ jobData }: Props) => {
 		minJdSalary,
 	} = jobData;
 	return (
-		<Grid item xs={12} sm={6} md={4}>
+		<Grid item xs={12} sm={6} md={4} ref={lastElementRef || null}>
 			<Card
 				variant="outlined"
 				sx={{

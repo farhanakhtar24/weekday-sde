@@ -1,4 +1,10 @@
-export const fetchJobs = async ({ limit, offset }) => {
+export const fetchJobs = async ({
+	limit,
+	offset,
+}: {
+	limit: number;
+	offset: number;
+}) => {
 	const res = await fetch(
 		"https://api.weekday.technology/adhoc/getSampleJdJSON",
 		{
@@ -7,8 +13,8 @@ export const fetchJobs = async ({ limit, offset }) => {
 				"Content-Type": "application/json",
 			},
 			body: JSON.stringify({
-				limit: 10,
-				offset: 0,
+				limit: limit,
+				offset: offset,
 			}),
 		}
 	);

@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import useDebounce from "./useDebounce";
 import { fetchJobs } from "../action/fetchJobs";
 
-function useListing() {
+function useFilters() {
 	const [listingData, setListingData] = useState<Job[]>([]);
 	const [filters, setFilters] = useState<Partial<FiltersInterface>>({});
 	const [isFetching, setIsFetching] = useState(false);
@@ -31,7 +31,7 @@ function useListing() {
 		try {
 			setIsFetching(true);
 			const res = await fetchJobs({ limit: 12, offset: offset });
-			setListingData([...listingData, ...res]);
+			setListingData([...listingData, ...res.jdList]);
 		} catch (error) {
 			console.log(error);
 		} finally {
@@ -84,7 +84,9 @@ function useListing() {
 			if (
 				debouncedFilters.searchCompanyName &&
 				debouncedFilters.searchCompanyName?.length > 0 &&
-				!item.companyName.includes(debouncedFilters.searchCompanyName)
+				!item.companyName
+					.toLowerCase()
+					.includes(debouncedFilters.searchCompanyName.toLowerCase())
 			)
 				return false;
 
@@ -106,4 +108,4 @@ function useListing() {
 	};
 }
 
-export default useListing;
+export default useFilters;

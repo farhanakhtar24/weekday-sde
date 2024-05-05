@@ -15,9 +15,17 @@ const Feeds = ({ jobs, lastElementRef }: Props) => {
 					spacing={2}
 					sx={{
 						flexGrow: 1,
-					}}
-					ref={lastElementRef}>
+					}}>
 					{jobs.map((job, index) => {
+						if (jobs.length === index + 1) {
+							return (
+								<JobCard
+									lastElementRef={lastElementRef}
+									key={index}
+									jobData={job}
+								/>
+							);
+						}
 						return <JobCard key={index} jobData={job} />;
 					})}
 				</Grid>
