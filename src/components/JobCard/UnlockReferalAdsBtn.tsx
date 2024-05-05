@@ -7,8 +7,6 @@ import {
 	styled,
 } from "@mui/material";
 
-type Props = {};
-
 const UnlockReferralAdsButton = styled(Button)<ButtonProps>(() => ({
 	backgroundColor: "#4943da",
 	"&:hover": {
@@ -17,7 +15,7 @@ const UnlockReferralAdsButton = styled(Button)<ButtonProps>(() => ({
 	color: "white",
 }));
 
-const UnlockReferalAdsBtn = (props: Props) => {
+const UnlockReferalAdsBtn = () => {
 	return (
 		<UnlockReferralAdsButton
 			sx={{

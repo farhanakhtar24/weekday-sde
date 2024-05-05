@@ -1,5 +1,4 @@
 import { Avatar, Box, Typography } from "@mui/material";
-import React from "react";
 
 type Props = {
 	companyName: string;

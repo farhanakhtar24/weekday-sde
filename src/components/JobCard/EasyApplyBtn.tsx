@@ -2,8 +2,6 @@ import { Button, ButtonProps, Typography, styled } from "@mui/material";
 import ElectricBoltIcon from "@mui/icons-material/ElectricBolt";
 import { amber } from "@mui/material/colors";
 
-type Props = {};
-
 const EasyApplyButton = styled(Button)<ButtonProps>(() => ({
 	backgroundColor: "#54efc3",
 	"&:hover": {
@@ -11,7 +9,7 @@ const EasyApplyButton = styled(Button)<ButtonProps>(() => ({
 	},
 }));
 
-const EasyApplyBtn = (props: Props) => {
+const EasyApplyBtn = () => {
 	return (
 		<EasyApplyButton
 			sx={{
