@@ -7,10 +7,8 @@ import DrawerHead from "./DrawerHead";
 import useFilters from "../hooks/useFilters";
 import Feeds from "./Feeds";
 
-type Props = {};
-
-const Wrapper = (props: Props) => {
-	const { list, lastElementRef, updateFilters } = useFilters();
+const Wrapper = () => {
+	const { jobList, lastElementRef, updateFilters } = useFilters();
 
 	const [open, setOpen] = useState(false);
 
@@ -29,7 +27,7 @@ const Wrapper = (props: Props) => {
 				<DrawerHead />
 				<Filters updateFilters={updateFilters} />
 				<NavBar handleDrawerOpen={handleDrawerOpen} open={open} />
-				<Feeds jobs={list} lastElementRef={lastElementRef} />
+				<Feeds jobs={jobList} lastElementRef={lastElementRef} />
 			</div>
 		</div>
 	);

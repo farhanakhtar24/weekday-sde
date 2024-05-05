@@ -25,6 +25,19 @@ const Filters = ({ updateFilters }: Props) => {
 	return (
 		<div>
 			<Grid container spacing={1}>
+				<Grid item xs={12} sm={4}>
+					<FormControl fullWidth>
+						<TextField
+							label="Search Company Name"
+							onChange={(e) => {
+								updateFilter(
+									e.target.value,
+									"searchCompanyName"
+								);
+							}}
+						/>
+					</FormControl>
+				</Grid>
 				{FilterConstants.map((item, index) => (
 					<Grid item xs={6} sm={2}>
 						<FormControl fullWidth>
@@ -53,19 +66,6 @@ const Filters = ({ updateFilters }: Props) => {
 						</FormControl>
 					</Grid>
 				))}
-				<Grid item xs={12} sm={4}>
-					<FormControl fullWidth>
-						<TextField
-							label="Search Company Name"
-							onChange={(e) => {
-								updateFilter(
-									e.target.value,
-									"searchCompanyName"
-								);
-							}}
-						/>
-					</FormControl>
-				</Grid>
 			</Grid>
 		</div>
 	);

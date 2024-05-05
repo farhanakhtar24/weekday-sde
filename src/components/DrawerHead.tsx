@@ -1,7 +1,4 @@
 import { styled } from "@mui/material";
-import React from "react";
-
-type Props = {};
 
 const DrawerHeader = styled("div")(({ theme }) => ({
 	display: "flex",
@@ -11,7 +8,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 	...theme.mixins.toolbar,
 }));
 
-const DrawerHead = (props: Props) => {
+const DrawerHead = () => {
 	return <DrawerHeader />;
 };
 

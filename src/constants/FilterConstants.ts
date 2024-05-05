@@ -192,9 +192,9 @@ export const FilterConstants = [
 		options: roles,
 	},
 	{
-		label: "Minimum Experience",
-		id: "experience",
-		options: minimumExperience,
+		label: "Minimum Base Pay Salary",
+		id: "minimumBasePay",
+		options: minBasePay,
 	},
 	{
 		label: "Remote",
@@ -202,8 +202,8 @@ export const FilterConstants = [
 		options: remote,
 	},
 	{
-		label: "Minimum Base Pay Salary",
-		id: "minimumBasePay",
-		options: minBasePay,
+		label: "Minimum Experience",
+		id: "experience",
+		options: minimumExperience,
 	},
 ] as FormObjectInterface[];
