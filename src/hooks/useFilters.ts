@@ -41,7 +41,6 @@ function useFilters() {
 
 	const updateFilters = useCallback(
 		async (filterData: Partial<FiltersInterface>) => {
-			console.log(filters, filterData);
 			setFilters({
 				...filters,
 				...filterData,
@@ -51,8 +50,6 @@ function useFilters() {
 	);
 
 	const list = useMemo(() => {
-		console.log("Calling List");
-		console.log(filters, listingData);
 		const data = listingData.filter((item) => {
 			if (
 				debouncedFilters.experience &&
