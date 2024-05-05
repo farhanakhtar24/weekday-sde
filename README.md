@@ -1,4 +1,4 @@
-This is a [Vite.js](https://vitejs.dev/)
+This is a [Vite.js](https://vitejs.dev/) project.
 
 ## Getting Started
 
