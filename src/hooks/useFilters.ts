@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import useDebounce from "./useDebounce";
+import { fetchJobs } from "../action/fetchJobs";
 
 function useListing() {
 	const [listingData, setListingData] = useState<Job[]>([]);
@@ -27,32 +28,15 @@ function useListing() {
 	);
 
 	const fetchDatafromAPI = useCallback(async () => {
-		const myHeaders = new Headers();
-		myHeaders.append("Content-Type", "application/json");
-
-		const body = JSON.stringify({
-			limit: 12,
-			offset: offset,
-		});
-
-		const requestOptions = {
-			method: "POST",
-			headers: myHeaders,
-			body,
-		};
-
-		setIsFetching(true);
-
-		return fetch(
-			"https://api.weekday.technology/adhoc/getSampleJdJSON",
-			requestOptions
-		)
-			.then((response) => response.json())
-			.then((result) => {
-				setListingData([...listingData, ...result.jdList]);
-				setIsFetching(false);
-			})
-			.catch((error) => console.error(error));
+		try {
+			setIsFetching(true);
+			const res = await fetchJobs({ limit: 12, offset: offset });
+			setListingData([...listingData, ...res]);
+		} catch (error) {
+			console.log(error);
+		} finally {
+			setIsFetching(false);
+		}
 	}, [listingData, offset]);
 
 	const updateFilters = useCallback(
@@ -112,7 +96,6 @@ function useListing() {
 
 	useEffect(() => {
 		fetchDatafromAPI();
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [offset]);
 
 	return {
